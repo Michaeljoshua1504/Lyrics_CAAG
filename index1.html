@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lyrics_CAAG</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+	<style>
+		h1{
+			text-align: center;
+		}
+
+		.button-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+			margin-top: 10px;
+		}
+
+		.text-button {
+			border: none;
+			border-radius: 5px;
+			padding: 15px 30px;
+			font-size: 18px;
+			color: white;
+			cursor: pointer;
+			background-color: red;
+			margin: 0;
+			font-family: 'Times New Roman', Times, serif;
+		}
+
+        /* .text-wrapper {
+  display: none;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Times New Roman', Times, serif;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+  text-align: center; /* Add this line to center the text 
+} */
+
+.text-wrapper {
+    font-weight: bold;
+    display: none;
+    width: 90%; /* set the width to a percentage value */
+    margin: 0 auto; /* center the container horizontally */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Times New Roman', Times, serif;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: justify;
+    text-align: center;
+}
+
+
+		.text-wrapper.active {
+			display: block;
+		}
+
+        .text-wrapper {
+  font-size: 16px;
+  /* other styles */
+}
+
+@media screen and (max-width: 768px) {
+  .text-wrapper {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .text-wrapper {
+    font-size: 12px;
+  }
+}
+
+	</style>
+</head>
+<body>
+	<h1>Songs Lyrics <br>(Sunday CAAG - 26 Feb)</h1>
+	<div class="button-container">
+		<button class="text-button" onclick="toggleText('text1','Randi Stuthinchuchu Paaudi.txt')">Song-1 (Randi Stuthinchuchu Paaudi)</button>
+		<div class="text-wrapper" id="text1"></div>
+	</div>
+
+    <div class="button-container">
+		<button class="text-button" onclick="toggleText('text2','Ae Thegulu Nee Gudaaramu.txt')">Song-2 (Ae Thegulu Nee Gudaaramu)</button>
+		<div class="text-wrapper" id="text2"></div>
+	</div>
+
+    <div class="button-container">
+		<button class="text-button" onclick="toggleText('text3','Neelo Samasthamu Saadhyame.txt')">Song-3 (Neelo Samasthamu Saadhyame)</button>
+		<div class="text-wrapper" id="text3"></div>
+	</div>
+
+    <div class="button-container">
+		<button class="text-button" onclick="toggleText('text4','Alankarinchunu.txt')">Song-4 (Alankarinchunu)</button>
+		<div class="text-wrapper" id="text4"></div>
+	</div>
+
+    <div class="button-container">
+		<button class="text-button" onclick="toggleText('text5','NEE KRUPAYE.txt')">Worship Song (NEE KRUPAYE)</button>
+		<div class="text-wrapper" id="text5"></div>
+	</div>
+
+    
+
+	<script>
+        function toggleText(id, filePath) {
+            var textWrapper = document.getElementById(id);
+            var allTextWrappers = document.querySelectorAll('.text-wrapper');
+    
+            allTextWrappers.forEach(function(wrapper) {
+                if (wrapper === textWrapper) {
+                    wrapper.classList.toggle('active');
+                    if (wrapper.classList.contains('active')) {
+                        fetch(filePath)
+                            .then(response => response.text())
+                            .then(text => {
+                                wrapper.innerHTML = "<pre>" + text + "</pre>";
+                            })
+                            .catch(error => console.log(error));
+                    } else {
+                        wrapper.innerHTML = "";
+                    }
+                } else {
+                    wrapper.classList.remove('active');
+                    wrapper.innerHTML = "";
+                }
+            });
+        }
+    </script>
+    </body>
+
+</html>    
+				
