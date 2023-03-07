@@ -1,0 +1,76 @@
+h1{
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.text-button {
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    background-color: red;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* .text-wrapper {
+display: none;
+width: 100%;
+padding: 20px;
+box-sizing: border-box;
+border: 2px solid black;
+font-size: 16px;
+line-height: 1.5;
+font-family: 'Times New Roman', Times, serif;
+white-space: pre-wrap;
+word-wrap: break-word;
+text-align: justify;
+text-align: center; /* Add this line to center the text 
+} */
+
+.text-wrapper {
+font-weight: bold;
+display: none;
+width: 90%; /* set the width to a percentage value */
+margin: 0 auto; /* center the container horizontally */
+padding: 20px;
+box-sizing: border-box;
+border: 2px solid black;
+font-size: 16px;
+line-height: 1.5;
+font-family: 'Times New Roman', Times, serif;
+white-space: pre-wrap;
+word-wrap: break-word;
+text-align: left;
+}
+
+
+.text-wrapper.active {
+    display: block;
+}
+
+.text-wrapper {
+font-size: 16px;
+/* other styles */
+}
+
+@media screen and (max-width: 768px) {
+.text-wrapper {
+font-size: 14px;
+}
+}
+
+@media screen and (max-width: 480px) {
+.text-wrapper {
+font-size: 12px;
+}
+}
